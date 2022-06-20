@@ -27,10 +27,10 @@ public class Main {
             for (User print : testList) {
                 System.out.println(print);
             }
-        }/*
+        }
         test.cleanUsersTable();
         System.out.println("\nUsers were successfully removed from DB");
         test.dropUsersTable();
-        System.out.println("\nTable with Users was successfully deleted from DB");*/
+        System.out.println("\nTable with Users was successfully deleted from DB");
     }
 }
