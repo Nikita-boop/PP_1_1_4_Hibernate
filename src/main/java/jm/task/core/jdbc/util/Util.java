@@ -14,15 +14,13 @@ public class Util {
     private Connection connection;
 
     public Connection getConnection() {
-        return connection;
-    }
-
-    public Util() {
+        connection = null;
         try {
             connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
         } catch (SQLException e) {
             System.out.println("Something went wrong...");
             e.printStackTrace();
         }
+        return connection;
     }
 }
