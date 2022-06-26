@@ -1,5 +1,9 @@
 package jm.task.core.jdbc.util;
 
+import org.hibernate.HibernateException;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,20 +11,19 @@ import java.sql.Statement;
 
 public class Util {
     // реализуйте настройку соеденения с БД
-    private static final String URL = "jdbc:mysql://localhost:3306/mydbtest";
-    private static final String USER_NAME = "root";
-    private static final String PASSWORD = "testpassroot";
+    private static final SessionFactory ourSessionFactory;
 
-    private Connection connection;
-
-    public Connection getConnection() {
-        connection = null;
+    static {
         try {
-            connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-        } catch (SQLException e) {
-            System.out.println("Something went wrong...");
-            e.printStackTrace();
+            Configuration configuration = new Configuration();
+            configuration.configure();
+            ourSessionFactory = configuration.buildSessionFactory();
+
+        } catch (Throwable ex) {
+            throw new ExceptionInInitializerError(ex);
         }
-        return connection;
+    }
+    static public SessionFactory getSession() throws HibernateException {
+        return ourSessionFactory;
     }
 }

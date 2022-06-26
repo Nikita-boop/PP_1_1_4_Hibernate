@@ -13,7 +13,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     @Override
     public void createUsersTable() {
-        dropUsersTable();
+        /*dropUsersTable();
         try (Connection connection = (new Util()).getConnection()) {
             Statement statement = connection.createStatement();
             statement.execute("CREATE TABLE `mydbtest`.`user` ("
@@ -26,42 +26,42 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             System.out.println("Something went wrong...");
             e.printStackTrace();
-        }
+        }*/
 
     }
     @Override
     public void dropUsersTable() {
-        try (Connection connection = (new Util()).getConnection()) {
+       /* try (Connection connection = (new Util()).getConnection()) {
             Statement statement = connection.createStatement();
             statement.execute("DROP TABLE IF EXISTS user;");
         } catch (SQLException e) {
             System.out.println("Something went wrong...");
             e.printStackTrace();
-        }
+        }*/
     }
     @Override
     public void saveUser(String name, String lastName, byte age) {
-        try (Connection connection = (new Util()).getConnection()) {
+        /*try (Connection connection = (new Util()).getConnection()) {
             Statement statement = connection.createStatement();
             statement.execute("INSERT INTO user(first_name, last_name, age) VALUES ('" + name + "', '" + lastName + "', " + age + ");");
         } catch (SQLException e) {
             System.out.println("Something went wrong...");
             e.printStackTrace();
-        }
+        }*/
     }
     @Override
     public void removeUserById(long id) {
-        try (Connection connection = (new Util()).getConnection()) {
+        /*try (Connection connection = (new Util()).getConnection()) {
             Statement statement = connection.createStatement();
             statement.execute("DELETE FROM user where id = " + id);
         } catch (SQLException e) {
             System.out.println("Something went wrong...");
             e.printStackTrace();
-        }
+        }*/
     }
     @Override
     public List<User> getAllUsers() {
-        List<User> list = new ArrayList<>();
+        /*List<User> list = new ArrayList<>();
         try (Connection connection = (new Util()).getConnection()) {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM user");
@@ -74,16 +74,17 @@ public class UserDaoJDBCImpl implements UserDao {
             System.out.println("Something went wrong...");
             e.printStackTrace();
         }
-        return list;
+        return list;*/
+        return null;
     }
     @Override
     public void cleanUsersTable() {
-        try (Connection connection = (new Util()).getConnection()) {
+        /*try (Connection connection = (new Util()).getConnection()) {
             Statement statement = connection.createStatement();
             statement.execute("TRUNCATE TABLE user;");
         } catch (SQLException e) {
             System.out.println("Something went wrong...");
             e.printStackTrace();
-        }
+        }*/
     }
 }
